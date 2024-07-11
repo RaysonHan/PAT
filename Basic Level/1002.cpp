@@ -1,24 +1,26 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main() {
+int main()
+{   
     string n;
+    int sum = 0;
     cin >> n;
-
-    int digitSum = 0;
-    for(char digitChar : n) {
-        digitSum += digitChar - '0';
+    for (size_t i = 0 ; i < n.size(); ++i)
+    {
+        sum += n[i] - '0';
     }
 
-    string sumStr = to_string(digitSum);
+    string ans;
+    string pyMap[10] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
 
-    string pinyinMap[10] = {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
+    ans = to_string(sum);
 
-    for (size_t i = 0; i < sumStr.length(); ++i) {
-        if (i > 0) cout << " ";
-        cout << pinyinMap[sumStr[i] - '0'];
+    for (size_t i = 0; i < ans.size(); ++i)
+    {
+        if(i > 0) cout << ' ';
+        cout << pyMap[ans[i] - '0'];
     }
 
     return 0;
